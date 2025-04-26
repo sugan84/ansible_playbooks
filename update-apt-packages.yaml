@@ -4,7 +4,7 @@
   become_method: sudo
   become_user: root
   vars:
-    ansible_become_password: "{{ lookup('secrets', 'SUDO_PASSWORD') }}"
+    ansible_become_password: "{{ lookup('env', 'SUDO_PASSWORD') }}"
   tasks:
     # Upgrade packages
     - name: upgrade apt packages
