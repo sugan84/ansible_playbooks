@@ -12,3 +12,11 @@
       apt:
         upgrade: yes
         update_cache: yes
+        cache_valid_time: 3600  # Optional: ensure cache is updated within the last hour
+
+    # Upgrade packages
+    - name: upgrade apt packages
+      apt:
+        upgrade: dist  # Use "dist" to handle upgrades across versions, or "yes" for safe upgrades.
+        autoclean: yes  # Optionally clean up any unused packages after upgrade.
+        autoremove: yes  # Optionally remove unnecessary packages after upgrade.
